@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>💡 랜덤 명언 가져오기</h2>
+    <button id="btn" >명언 생성</button>
+    <p id="advice" style="font-size:20px;"></p>
+    
+    <script>
+        let btn = document.querySelector("#btn");
+        let advice = document.querySelector("#advice");
+
+        btn.addEventListener("click",() => {
+            fetch ('https://api.adviceslip.com/advice')
+                .then( res => {
+                    if(!res.ok){
+                        throw new Error('데이터 불려오기 실패')
+                    } 
+                    return res.json();
+                })
+                .then( data => {
+                    //p태그에 명언을 추출해서 넣는다
+                    advice.innerText = data.slip.advice
+                })
+                .catch(err => {
+                    console.error('에러: ' + err );
+                    alert("명언을 가져오는 데 실패했습니다.");
+                })
+        })
+    </script>
+    
+</body>
+</html>

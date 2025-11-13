@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num = 1;
+        let prev = () => {
+            num--;
+
+            //num01 1보다 작다면 7을 넣어라
+            if(num < 1){ num = 7};
+            let path = `images/dog${num}.jpg`
+            //이미지 탸그의 src를 변경하세요 
+            let gallery = document.querySelector("#gallery");
+            gallery.src = path;
+
+        }
+
+        let next = () => {
+            num++;
+
+            //num이 7보다 크면 1로 돌아가
+            //if문은 ()들어이있는 조건(결과가 참 OR 거짓)애 따라서
+            //{}에 들어았는 명령을 실향할지 실향허지 않을지 결정
+            //대게 조건애 들어가는 것: 비교연산자 (>,<,>=,<=, ===, !===), 논리연산자 (&&, ||)
+            //false로 판별하는 것들: 0, '', [], null, undefined, NaN
+            if (num > 7){
+                num =1};
+            
+            let path = `images/dog${num}.jpg`
+            //gallery라는 아이디값을 가진 이미지 태그의 src를 변경
+            let gallery = document.querySelector("#gallery");
+            gallery.src = path;
+        }
+
+        //prev(), next() 함수는 버튼을 틀릭해야 작동
+
+        //일정한 시간마다 특정 함수으로 반복해서 실향하는 함수
+        setInterval(next,2000);
+    </script>
+</head>
+<body>
+    <div id="gallerywrap">
+        <p>
+            <button onclick="prev()">이전</button>
+            <img src="images/dog1.jpg"  id="gallery" width="300" height="200">
+            <button onclick="next()">다음</button>
+        </p>
+        
+        
+    
+
+</body>
+</html>

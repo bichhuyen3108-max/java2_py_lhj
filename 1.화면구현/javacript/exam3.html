@@ -1,0 +1,62 @@
+@ -1,61 +0,0 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        let even = 0;
+        let odd = 0;
+        //1부터 28까지 순회
+        for(let i =1; i < 28; i++){
+            if(i % 2 === 0){
+                even++;
+            }else{odd++;}
+        }
+
+        console.log(`짝수 : ${even}, 홀수 : ${odd}`)
+        
+        // bang cuu chuong 3
+        
+        let dan = 3;
+        for( let i =1; i < 9; i++){
+            if( i % 2 === 0){
+                continue;  
+            }console.log(`${dan} X ${i} = ${dan * i}`)
+        }
+        
+        //1부터 N까지 합계와 평균
+        
+        let sum = 0; // 총합을 담을 변수
+        let count = 0; //개수를 담을 변수
+        for( let i = 1; i <= 45; i++){
+            if( i % 3 ===0){
+            continue;
+            } 
+            sum +=i; //sum =  sum + i; sum = 0 + 1
+            count++; //개수 셀때는 한개씩 세니까
+        }
+        console.log(`average = ${sum / count}, sum = ${sum}`)
+       
+
+        // 자연수 뒤집기
+
+        let num = 12340; // 초기값
+        let reversed = 0;
+
+        while (num > 0) {
+            let digit = num % 10; // 마지막 자리
+            reversed = reversed * 10 + digit; // 뒤집기 누적
+            num = parseInt(num / 10); // 한 자리 제거
+        }
+        console.log(`뒤집은 숫자: ${reversed}`);
+       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

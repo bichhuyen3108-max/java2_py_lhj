@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+            font-family: sans-serif;
+            color: black;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container{
+            max-width: 1200px;
+            height: 100px;
+            margin:auto;
+            padding: 24px;
+        }
+
+        .header-title{
+            background-color: greenyellow;
+            color: white;
+            padding: 20px;
+        }
+
+        nav{
+            background-color: green;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        nav a{
+            text-decoration: none;
+            color: white;
+        }
+        main{
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            background-color: wheat;
+        }
+        section{
+            flex: 7;
+            background-color: grey;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        aside{
+            flex: 3;
+            background-color: beige;
+            padding: 20px;
+            border-radius: 8px;
+
+        }
+
+        footer{
+            background-color: blue;
+            padding: 8px;
+            border-radius: 8px;
+            color: white;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-title">
+                <h1>Flexbox Layout 연습</h1>
+                <nav>
+                    <a href="#">홈</a>
+                    <a href="#">공지사항</a>
+                    <a href="#">문의</a>
+                </nav>
+            </div>
+        </header>
+    <main>
+        <section>
+            <h2>메인 콘텐츠</h2>
+            <p>이 영역은 본문 내용을 표시하는 구역이다.</p>
+            <p>Flexbox를 이용해 왼쪽에 배치된다.</p>
+        </section>
+
+        <aside>           
+            <h2>사이드바</h2>
+            <p>보조 정보 공지사항을 표시하는 구역이다.</p>    
+        </aside> 
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Flex Layout Practice</p>
+    </footer>
+
+</body>
+</html>

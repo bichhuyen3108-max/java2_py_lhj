@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 보무 요소애 display: flex를 주게 되면 자식 요소들이 좌에서 우로 배치된다.*/
+        .container{
+            display: flex;
+            align-items: flex-start;
+            
+        }
+        /*
+        너비 150px
+        배경색
+        글씨색
+        안쪽여백
+        글씨 가운데 정렬
+        태두리 둘글데*/
+        .box{
+            width: 150px;
+            background-color: #345f98;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px;
+
+        }
+        /* 내용이 많으면 넘친다 높이다 고정*/
+        .fixed{
+            height: 100px;     /* 고정 높이*/
+        }
+        .min{
+            min-height: 100px;
+        }
+        /* overflow: 
+        hidden -> 넘치면 가림,
+        auto -> 넘치면 스크롤 만들어줌*/
+        .max{
+            max-height: 100px;
+            overflow: auto;
+        }
+        .auto{
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+   <h1>height속성 실습</h1>
+   <div class="container">
+        <div class="box fixed">놈인 헨싱기 겔다훅매줘어서 혼오북곱이나 므기바나다.
+             그이 과제으어야 그이젠 파갰헉조게, 언베하고 긒느다 믁뎌뇨가 금채라게 엔슨기다. 
+             즈견링어도 디아온이라도, 송깃고 먼존인은지 우잉지암에 입스흘을 소잰에빠쿠의 야서의머룺귱을 
+             잉데리딕서의 엥링뵤 이감니채의.</div>
+        <div class="box min">놈인 헨싱기 겔다훅매줘어서 혼오북곱이나 므기바나다.
+             그이 과제으어야 그이젠 파갰헉조게, </div>
+        <div class="box max">놈인 헨싱기 겔다훅매줘어서 혼오북곱이나 므기바나다.
+             그이 과제으어야 그이젠 파갰헉조게, 언베하고 긒느다 믁뎌뇨가 금채라게 엔슨기다. 
+             즈견링어도 디아온이라도, 송깃고 먼존인은지 우잉지암에 입스흘을 소잰에빠쿠의 야서의머룺귱을 
+             잉데리딕서의 엥링뵤 이감니채의.</div>
+        <div class="box auto">놈인 헨싱기 겔다훅매줘어서 혼오북곱이나 므기바나다.
+             그이 과제으어야 그이젠 파갰헉조게, 언베하고 긒느다 믁뎌뇨가 금채라게 엔슨기다. 
+             즈견링어도 디아온이라도, 송깃고 먼존인은지 우잉지암에 입스흘을 소잰에빠쿠의 야서의머룺귱을 
+             잉데리딕서의 엥링뵤 이감니채의.</div>
+   </div> 
+</body>
+</html>

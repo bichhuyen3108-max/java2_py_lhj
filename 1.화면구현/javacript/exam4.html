@@ -1,0 +1,80 @@
+@ -1,73 +0,0 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //실습1 cach2 o trong bai giang
+        // cach 1
+        const num = [1,2,3,4,5,6,7,8,9,10]
+        let doubled =[]
+
+        for( const v of num ){
+            if(v % 2 === 0){
+            doubled.push(v*2)
+            }
+        } console.log(doubled);
+
+
+        // 실습2
+        //종합 - cach 1
+
+        let sum = 0
+        let score = [100, 98, 58, 71, 26, 50, 39, 45]
+        let count = 0
+
+        for(let i = 0; i < score.length; i++){
+            sum += score[i];
+            count++;
+        }
+       let avg= sum/count;
+        console.log(avg);
+
+        // cach 2
+       sum = score.reduce((acc,v) => acc + v, 0);
+       avg = sum/score.length
+       console.log(avg);
+
+       
+       //실습3
+       let sum1 = 0
+       let num1 =[1,2,3,4,5,6,7,8,9,10]
+       for(let i = 0; i < num1.length; i++){
+        sum1 += num1[i];
+       }
+       console.log(sum1);
+
+       //cach 2
+       sum1 = num1.reduce((acc,a) => acc + a, 0);
+       console.log(sum1);
+
+
+        //실습4
+
+       let numbers = [1,2,2,3,4,5,6,6,6,7];
+        const uniqueNumbers = [];
+        for(let i = 0; i < numbers.length; i++){
+            const currentNumber = numbers[i];
+            if(!uniqueNumbers.includes(currentNumber)){
+                uniqueNumbers.push(currentNumber);
+            }
+        }
+
+        console.log(uniqueNumbers)
+
+
+
+
+
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

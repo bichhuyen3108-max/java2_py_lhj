@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //json데이터
+        let students =[
+            {"name":"홍길동",
+            "age":20,
+            "major":"컴퓨터 공학",
+            "hobby": ["코딩","게임","독서"],
+            "friend": [{"name":"김철수","age":23},
+            {"name":"김영희","age":22}]
+            },
+
+            {"name":"김철수",
+            "age":23,
+            "major":"경영학과",
+            "hobby": ["코딩","게임","독서"],
+            "friend": [{"name":"김박사","age":25},
+            {"name":"김자바","age":27}]  
+            
+            },
+            {"name":"박나비",
+            "age":25,
+            "major":"산업디자인 학과",
+            "hobby": ["코딩","게임","독서"],
+            "friend": [{"name":"김철수","age":23},
+            {"name":"김영희","age":22}]
+            },
+
+        ]
+            //json 데이터 점근하여 value 꺼내기
+            //js객채애 접근하여 값을 꺼내는 밥법과 동일
+            // students[0]: 베열의 첫번째 요소애 접근 -> 첫번째 객채에 접근
+            //dau cham o day co nghia la 의 hoac 에
+            console.log(students[0].name); //홍길동 // 
+            //취미 출력하기
+            console.log(students[0].hobby[1]) //게임
+            //친구이름 출력하기(김영희)
+            console.log(students[0].friend[1].name) //김영희
+
+    </script>
+</body>
+</html>

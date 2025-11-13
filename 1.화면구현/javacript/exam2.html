@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 실습1
+        let month = 13;
+        switch (month){
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:            
+            case 10:
+            case 12: 
+            console.log(`${month}월은 31일까지 있습니다`);
+            break;
+            case 2: console.log(`${month}월은 28일 또는 29일있입니다`);
+            break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+            console.log(`${month}월은 30일까지 있습니다`);  
+            break;
+            default:
+                console.log("잘못 입력하셨습니다. 1~12사이의 숫자로 입력해주세요.")
+        }
+
+        // 실습2
+        let score = 89;
+        
+        if( score <0 || score > 100) {
+            console.log ("유효하지 않은 점수입니다")
+        }  else if( score >=90) {
+            console.log("A")
+        }    
+            else if( score >=89) {
+            console.log("B")
+        }    
+            else if( score >=79) {
+            console.log("C")
+        }    
+            else if( score >=69) {
+            console.log("D")
+        }    
+        else {console.log(F)};
+
+        //실습3
+
+        let year = 2005;
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            console.log("윤년이다");
+        } else {console.log("윤년이 아닙니다")}
+
+        //실습4
+
+        let order = 5;
+        switch (order){
+            case 1 : console.log("아메리카노 1500원");
+            break;
+            case 2: console.log("라테 2000원");
+            break;
+            case 3: console.log("녹차 1800원");
+            break;
+            default: console.log("잘못된 선택입니다");
+        }
+
+
+        //실습5
+
+        let time = 11
+        if(time <0 || time > 23){
+            console.log("유효하지 않은 시각입니다");
+        }else if(time >= 5 && time <= 11){
+            console.log("좋은 아침입니다");
+        } else if(time >= 12 && time <= 17){
+        console.log("좋은 오후입니다");
+        } else if(time >= 18 && time <= 21){
+        console.log("좋은 저녁입니다");
+        } else {
+        console.log("좋은 밤입니다");
+        }
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile{
+            
+            background: #ffffff;
+            width: 200px;
+            border-radius: 8px;
+            border: 2px solid #eee;
+            padding: 10px;
+            font-family: sans-serif;  
+        }
+
+        .profile__name{
+            font-size: 20px;
+            margin-bottom: 10px;
+
+        }
+
+        .profile__email{
+            font-size: 15px;
+        }
+
+        .profile--vip{
+            background-color: bisque;
+            font-weight: 700;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h2>BEM 푸로필 예제</h2>
+    <div class="container">
+        <div class="profile">
+            <p class="profile__name">이름: 홍길동</p>
+            <p class="profile__email">이메일:gildong@example.com</p>
+        </div>
+
+        <div class="profile profile--vip">
+            <p class="profile__name">이름: 김철수</p>
+            <p class="profile__email">이메일:chullsoo@example.com</p>
+        </div>
+    </div>
+</body>
+    
+    
+</body>
+</html>
