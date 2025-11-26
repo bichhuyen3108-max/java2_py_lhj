@@ -5,10 +5,10 @@ public class Car {
     String color;
     int maxSpeed;
 
-    //기본 생성자
-    public Car() {
-    	
-    }
+//    //기본 생성자
+//    public Car() {
+//    	
+//    }
     //값을 받아서 필드에 넣는 생성자
     public Car(String m, String c, int maxSpeed) {
     	this.model = model;

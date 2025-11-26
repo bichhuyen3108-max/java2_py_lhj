@@ -1,5 +1,7 @@
 package ch13;
 
+import java.util.Random;
+
 public class CarMain {
 
 	public static void main(String[] args) {
@@ -9,6 +11,15 @@ public class CarMain {
 		
 		// 생성자를 호출하면서 데이터를 보냄
 		Car c1 = new Car("그랜져","검정",250);
+		
+		String s = new String("홍길동");
+		
+		Random r = new Random();
+		
+		
+
+	
+	
 
 	}
 
