@@ -7,7 +7,7 @@ public class Exam1 {
 	//1.배열의 최대값을 찾는 maxFinder메서드 만들기
 	//최대값을 찾아서 반환하기
 //	public int maxFinder(int[] arr) {
-//		int max = 0;
+//		int max = 0; 
 //		for(int i: arr) {
 //			if (i > max) {
 //				max = i;
