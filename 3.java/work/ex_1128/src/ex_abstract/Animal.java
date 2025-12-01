@@ -20,7 +20,7 @@ public abstract class Animal {
 	}
 
 	//추상 메서드
-	//메서드의 구현부가 없고 세ㅐ미콜론으로 끝난다
+	//메서드의 구현부가 없고 새미콜론으로 끝난다
 	//자식들이 꼭 만들어야 하는 메서드의 이름과 형채만 정의한 곳
 	public abstract void sound();
 }
