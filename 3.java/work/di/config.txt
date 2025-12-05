@@ -1,0 +1,3 @@
+sportscar=com.korea.di.di1.SportsCar
+engine = com.korea.di.di1.Engine
+truck = com.korea.di.di1.Truck
