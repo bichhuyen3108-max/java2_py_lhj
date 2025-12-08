@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,6 +57,7 @@ public class TodoController {
 		try {
 			//로그인 기능이 없기 때문에 임시 유저
 			String tempraryUserId = "temporary-user";
+			
 			//DTO -> Entity
 			TodoEntity entity= TodoDTO.toEntity(dto);	
 			
@@ -86,5 +88,109 @@ public class TodoController {
 			return ResponseEntity.ok().body(response);
 		}
 	}
+	
+	 	//생성된 모든 할 일을 조회하는 retrieveTodoList메서드 만들기
+	   //어떤 한 유저가 만든 할일에 대해서 모두 조회
+	   //임시유저 : temporary-user
+	   //@GetMapping
+	
+	   @GetMapping
+	   public ResponseEntity<?> retrieveTodoList(){
+	      //임시 유저 아이디
+	      String temporaryUserId = "temporary-user";
+	      
+	      //서비스레이어의 retrieve메서드를 이용해 Todo리스트를 반환받아 entities리스트에 저장한다.
+	      List<TodoEntity> entities = service.retrieve(temporaryUserId);
+	      
+	      //List에 들어있는 Entity들을 DTO로 변환한다.
+	      List<TodoDTO> dtos = new ArrayList<TodoDTO>();
+	      
+	      for(TodoEntity e : entities) {
+	         dtos.add(new TodoDTO(e));
+	      }
+	      
+	      //ResponseDTO객체에 담는다.
+	      ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
+	      
+	      //ResponseEntity로 반환한다.
+	      return ResponseEntity.ok().body(response);
+	   }
+	
+	   //할일을 수정하기 위해 updateTodo메서드 작성하기
+	   //수정하려는 내용을 사용자로부터 받아서 처리
+	   //임시유저 : temporary-user
+	   //update from Todo set title="수정할내용" done = true, where =?
+	   @PutMapping
+	   public ResponseEntity<?>updateTodo(@RequestBody TodoDTO dto){
+		   //임시유저 생성
+		   String temporaryUserId = "temporary-user";
+		   
+		   //dto를 Entity로 변환
+		   TodoEntity entity = TodoDTO.toEntity(dto);
+		   
+		   entity.setUserId(temporaryUserId);
+		   
+		   //entity
+		   // id: xxxxx
+		   //userId: temporary-user
+		   //title: 수정하려고 하는 내용
+		   //done : true
+		   
+		   List<TodoEntity> entities = service.update(entity);
+		   
+		 //List에 들어있는 Entity들을 DTO로 변환한다.
+		   List<TodoDTO> dtos = new ArrayList<>();
+		   
+		   for(TodoEntity e : entities) {
+		         dtos.add(new TodoDTO(e));
+		      }
+		 //ResponseDTO객체에 담는다.
+		   ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
+		   
+		 //ResponseEntity로 반환한다.
+		   return ResponseEntity.ok().body(response);
+	   }
+	   
+	   //delete() 메서드 만들기
+	   //넘어온 entity가 유호한지 검사
+	   //유호하면 삭제 후 전체 조회를 해서  반한
+	   //delete from Todo where id = ?
+	   
+	   @DeleteMapping
+	   public ResponseEntity<?>deleteTodo(@RequestBody TodoDTO dto){
+		   
+		 //임시유저 생성
+		   String temporaryUserId = "temporary-user";
+		   
+		   // DTO -> Entity 변환 để gửi xuống Service xử lý
+		   
+		  TodoEntity entity = TodoDTO.toEntity(dto);
+		  
+		   
+		  //원래 entity에 돌아가는것
+		  //id
+		  //userId
+		  //title
+		  //done
+		  
+		  //service로 넘기는 entity
+			// Service 호출해서 삭제 + 전체 리스트 반환 받기
+		    List<TodoEntity> entities = service.delete(entity);
+		    
+		    
+		    //List에 들어있는 Entity들을 DTO로 변환한다.
+		      List<TodoDTO> dtos = new ArrayList<TodoDTO>();
+		      
+		      for(TodoEntity e : entities) {
+		         dtos.add(new TodoDTO(e));
+		      }
+		   
+	   }
+	   
+	   
+	   
+	
+	
+	
 	
 }

@@ -17,15 +17,18 @@ public class ProductService {
 	
 	public ProductDTO createProduct(ProductCreateDTO responsedto) {
 		
+		//검증
 		validate(responsedto);
 		
-	
-
+		// DTO -> Entity 변환
+		ProductEntity
+		
+		
 	private void validate(ProductCreateDTO dto) {
 		if(dto.getName() == null || dto.getName().trim().isEmpty()) {
 			throw new RuntimeException("상픔 이름은 필수입니다.");
-			
-		}
+		} else if ()
+		
 		
 	}
 	
