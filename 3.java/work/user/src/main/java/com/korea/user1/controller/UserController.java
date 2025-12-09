@@ -1,4 +1,4 @@
-package com.korea.user1.controller;
+package com.korea.user.controller;
 
 import java.util.ArrayList;
 import java.util.List;

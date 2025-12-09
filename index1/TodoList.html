@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+
+        .container {
+            width: 480px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .todo-input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #todo-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        #add-btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #add-btn:hover {
+            background: #2980b9;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .todo-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .todo-text.done {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+
+        .delete-btn {
+            border: none;
+            background: none;
+            color: #e74c3c;
+            cursor: pointer;
+        }
+
+        .empty-text {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>Todo List</h2>
+
+    <div class="todo-input-area">
+        <input id="todo-input" type="text" placeholder="할일을 입력하세요" />
+        <button id="add-btn">추가</button>
+    </div>
+
+    <ul id="todo-list"></ul>
+    <p id="empty-text" class="empty-text">아직 등록된 할 일이 없습니다.</p>
+</div>
+<script>
+    //이벤트 처리를 하기 위해서 html 요소들을 등록
+    //할인 입력창
+    const todoInput = document.querySelector("#todo-input");
+
+    //추가버튼
+    const addBtn = document.querySelector("#add-btn");
+
+    //ul리스트
+    const todoList = document.querySelector("#todo-list");
+
+    //비이있을 때 문구
+    const emptyText = document.querySelector("#empty-text");
+
+    
+    //------------------------------
+    //TODO(할일) 랜더링하기
+    //------------------------------
+
+    function renderTodoList(todos){
+        todoList.innerHTML = "";
+        if(!todos || todo.length === 0){
+            //emptyText의 display를 block으로 만들기
+        }else{
+             //emptyText의 display를 none으로 만들기
+        }
+        //배열에서 객체를 하나씩 꺼내서 li를 만들어서
+        //<li>
+        todo.forEach(todo => {
+            const li = document.createElement("li");
+            li.className = "todo-item";
+
+            // 왼쪽: 체크박스와 텍스트 "<div class=todo=left>"
+            const left = document.createElement("div");
+            left.className="todo-left";
+
+            //<input type="checkbox">
+            const checkbox = document.createElement("input");
+            checkbox.type="checkbox";
+            checkbox.checked = todo.done; // 기본값 false
+
+            const span = document.createElement("span");
+            span.className="todo-text";
+            span.textContent = todo.title;
+
+            if(todo.done){
+                soan.classList.add("done");           
+            }
+
+            checkbox.addEventListener("change",() =>{
+                span.classList.toggle("done");
+            })
+
+            left.appendChild(checkbox);
+            left.appendChild(span);
+
+            //삭제 버튼
+            const delBtn = document.createElement("button");
+            delBtn.className="delete-btn";
+            delBtn.textContent ="삭제";
+
+            delBtn.addEventListener("click", () => {});
+
+            li.appendChild(left);
+            li.appendChild(delBtn);
+
+            todoList.appendChild(li);
+        });  
+    }
+
+    //------------------------------
+    //TODO(할일) 추가하가
+    //------------------------------
+    async function addTodo() {
+        const text = todoInput.value.trim();
+        //text의 내용이 비이있으면 "내용을 입력하세요"라고 경고 띄우기
+        if(text ===""){
+            return alert("내용을 입력하세요")
+        }
+
+        //fetch를 이용해서 springboot에 요청하기
+        const response = await fetch("http://localhost:8080/todo/createTodo",{
+            method : "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({title:text})
+        })
+        //JSON.stringify() : jsrircofmf jso문자열로 변환해준다
+        //{title:text} -> "{\"title"\ : \"Hello"\}"
+         //얻어온 결과를 콘솔에 찍어보기
+        const result = await response.json();
+        console.log(result.data);
+        if(result.data){
+            
+        }
+
+
+        todoInput.value = "";
+        todoInput.focus();
+
+    }
+
+    todoInput.addEventListener("keydown",e =>{
+        if(e.key === "Enter"){
+            addTodo();
+        }
+    
+    })
+
+    addBtn.addEventListener("click",addTodo)
+        
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    
+</script>
+
+
+</body>
+</html>
