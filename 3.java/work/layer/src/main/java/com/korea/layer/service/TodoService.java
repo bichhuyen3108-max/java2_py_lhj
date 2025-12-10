@@ -107,9 +107,6 @@ public class TodoService {
 		
 		
 		
-		
-		
-		
 	}
 	
 	private void validate(TodoEntity entity) {

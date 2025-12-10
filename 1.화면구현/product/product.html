@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+    <div class = "container">
+        <header class=" header">
+            <div class="header-icon">📦</div>
+            <h1 class="header-title">상품 관리 클라이언트</h1>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">상품 등록</h2>
+            
+            <div class="product-form">
+                <div class="form-row">
+                    <label class="form-label" for="name" >상품 이름</label>
+                    <input id="name" type="text" class="form-input">
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="stock" >상품 재고</label>
+                    <input id="name" type="text" class="form-input">
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label" for="price" >상품 가격</label>
+                    <input id="name" type="text" class="form-input">
+                </div>
+
+                <button class="btn-submit">등록</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>상품 번호</th>
+                        <th>상품 이름</th>
+                        <th>상품 재고</th>
+                        <th>상품 가격</th>
+                        <th>등록 날짜</th>
+                        <th>수정 날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- chưa có 데이터: hiển thị câu thông báo -->
+                    <tr>
+                        <td colspan="6" class="empty-text">
+                            상품 목록을 불러올 수 없습니다. 서버(<span class="code">http://localhost:8080</span>)가 실행 중인지 확인하세요.
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+</body>
+</html>

@@ -2,11 +2,13 @@ package com.korea.layer.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -76,12 +78,12 @@ public class TodoController {
 			List<TodoEntity> entites = service.create(entity);
 			
 			
-			List<TodoDTO> dtos = new ArrayList<>();
+			
 			
 			//리스트 안에 들어있는 TodoEntity를 TodoDTO 타입으로 변경해서 dtos에 넣는다.
-			for(TodoEntity e : entites) {
-				dtos.add(new TodoDTO(e));//entity를 dto로 바꿔서 리스트에 추가
-			}
+			List<TodoDTO> dtos = entites.stream()
+					.map(TodoDTO::new)
+					.collect(Collectors.toList());
 			
 			//builder패턴을 이용해서 dtos를 ResponseDTO에 담아서 ResponseEntity로 반환한다.
 			ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
@@ -166,12 +168,16 @@ public class TodoController {
 	//임시유저 세팅
 	//삭제 후 전체조회를 해서 반환
 	//delete from Todo where id = ??
-	@DeleteMapping
-	public ResponseEntity<?> deleteTodo(@RequestBody TodoDTO dto){
+	
+	@DeleteMapping("{id}")
+	public ResponseEntity<?> deleteTodo(@PathVariable String id){
 		String temporaryUserId = "temporary-user";
 		
-		TodoEntity entity = TodoDTO.toEntity(dto);
-		entity.setUserId(temporaryUserId);
+		TodoEntity entity = TodoEntity.builder()
+							.id(id)
+							.userId(temporaryUserId)
+							.build();
+					
 		
 		//원래 entity에 들어가는것
 		//id
