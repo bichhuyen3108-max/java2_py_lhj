@@ -17,32 +17,29 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-
+		//ProductRepository 주입
 	private final ProductRepository  productRepository;
-
+	
+		// 상품 초회 
+		public List<ProductEntity> findAll() {
+			
+			return productRepository.findAll();
+		}
+		
+		
+		// 상품 추가 API
+		//entity를 Controller로 부터 전잘받아서 영속계층으로 전달하여 db애 저장
+		
 	public List<ProductEntity> create(ProductEntity entity) {
-		if(entity == null) {
-			log.warn("Entity cannot be null");
-			throw new RuntimeException("Entity cannot be null");
-		}
-		if(entity.getName() == null) {
-			throw new RuntimeException("상품 이름이 필수합니다");
-		}
-		if(entity.getPrice() < 0) {
-			throw new RuntimeException("가격가 0 이상이어야다");
-		}
-		if(entity.getStock() <0) {
-			throw new RuntimeException("재고가 0 이상이어야다");
-		}
+		
+		//entity를 Controller로 부터 전잘받아서 영속계층으로 전달하여 db애 저장
 		productRepository.save(entity);
 		
-		return productRepository.findAll();
+		//db에 저장된 모든 내용을 조회하여 반환
+		return findAll();
 	}
 
-	public List<ProductEntity> retrieve() {
-		
-		return productRepository.findAll();
-	}
+
 	
 	
 }

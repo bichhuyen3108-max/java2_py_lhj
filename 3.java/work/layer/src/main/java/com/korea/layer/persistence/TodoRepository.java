@@ -50,6 +50,7 @@ public interface TodoRepository extends JpaRepository<TodoEntity, String> {
 	
 	
    //기본으로 제공하지 않는것은 인테페이스에 추상메서드로 만들어서 사용해야한다
+	//하이버네이터가 SQL로 만들어서 실행한다
    List<TodoEntity> findByUserId(String userid);
    
    

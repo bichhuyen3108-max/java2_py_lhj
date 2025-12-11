@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 관리 프로그램</title>
+     <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>📦 상품 관리 프로그램</h1>
+        <div class="add-form-section">
+            <h3>상품 등록</h3>
+            <form id="addItemForm">
+                <input id="productName" name="productName" placeholder="상품 이름">
+                <input id="productStock" name="productStock" placeholder="상품 재고">
+                <input id="productPrice" name="productPrice" placeholder="상품 가격">
+                <button type="submit" class="btn-register">등록</button>
+            </form>
+            <div id="message"></div>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>상품 번호</th>
+                    <th>상품 이름</th>
+                    <th>상품 재고</th>
+                    <th>상품 가격</th>
+                    <th>등록 날짜</th>
+                    <th>수정 날짜</th>
+                </tr>
+            </thead>
+            <tbody id="itemTableBody">
+                <tr><td colspan="6">상품 목록 로딩 중...</td></tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script type="module" src ="app.js"></script>
+    
+
+</body>
+</html>
