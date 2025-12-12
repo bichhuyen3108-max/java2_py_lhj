@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 관리 프로그램</title>
-     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -20,9 +19,12 @@
             </form>
             <div id="message"></div>
         </div>
+
         <table border="1">
             <thead>
                 <tr>
+                    <th>단일 선택</th>
+                    <th>주문 개수</th>
                     <th>상품 번호</th>
                     <th>상품 이름</th>
                     <th>상품 재고</th>
@@ -32,13 +34,37 @@
                 </tr>
             </thead>
             <tbody id="itemTableBody">
-                <tr><td colspan="6">상품 목록 로딩 중...</td></tr>
+                <tr><td colspan="8">상품 목록 로딩 중...</td></tr>
             </tbody>
         </table>
 
-    </div>
-    <script type="module" src ="app.js"></script>
-    
+        <div class="order-section">
+            <button id="orderButton" class="btn-order">
+                주문하기
+            </button>
+            <button id="fetchOrdersButton" class="btn-history">주문내역</button>
+            <div id="orderMessage" style="margin-top: 10px; color:green;"></div>
+        </div>
 
+        <div class="order-history-section" style="margin-top : 30px;">
+            <h3>🛒주문 내역</h3>
+            <div id="orderHistoryMessage" style="color:blue; margin-bottom: 10px;">주문 내역 버튼을 눌러주세요</div>
+            <table border="1" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>상품 이름</th>
+                        <th>상품 가격</th>
+                        <th>상품 개수</th>
+                        <th>결제 금액</th>
+                        <th>주문 날짜</th>
+                    </tr>
+                </thead>
+                <tbody id="orderHistoryTableBody">
+                    <tr><td colspan="5">주문 내역 로딩 중...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
 </body>
 </html>

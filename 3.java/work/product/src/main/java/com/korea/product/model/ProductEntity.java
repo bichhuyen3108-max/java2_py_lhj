@@ -17,8 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
-@Data //getter & setter
+@AllArgsConstructor //getter & setter
 @Entity
 @Table(name="Product")
 

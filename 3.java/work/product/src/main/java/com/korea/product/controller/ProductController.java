@@ -19,7 +19,7 @@ import com.korea.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("/product")
 @RequiredArgsConstructor // không cần tạo 생성자 cho ProductController
 @CrossOrigin(originPatterns = "*", allowCredentials = "false")
 public class ProductController {
